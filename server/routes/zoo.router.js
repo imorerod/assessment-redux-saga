@@ -17,4 +17,18 @@ router.get('/', (req, res) => {
         });
 });
 
+// router.post('/', (req,res) => {
+//     const queryString = `INSERT INTO "species" ("image_id", "tag_id")
+//                         VALUES ($1, $2)`;
+
+//     pool.query(queryString, [req.body.imageId, req.body.tagId])
+//         .then((response) => {
+//             res.sendStatus(201);
+//         })
+//         .catch((err) => {
+//             console.log(`Error posting tags to image-tags table: ${err}`);
+//             res.sendStatus(500);
+//         });
+// })
+
 module.exports = router;
