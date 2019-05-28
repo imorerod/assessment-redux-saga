@@ -20,7 +20,7 @@ class AnimalList extends Component {
                 </thead>
                 <tbody>
                     {/* Render each item from the zooAnimal reducer */}
-                    {this.props.reduxState.zooAnimals.map((classData, i) => {
+                    {this.props.reduxState.setZooReducer.map((classData, i) => {
                         return (<AnimalListItem key={i} classData={classData} />);
                     })}
                 </tbody>

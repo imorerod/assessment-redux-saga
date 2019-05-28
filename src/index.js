@@ -11,6 +11,7 @@ import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import { takeEvery } from 'redux-saga/effects';
 import getZooAnimals from './modules/sagas/getZooAnimals';
+import setZooReducer from './modules/reducers/setZooReducer';
 
 // Your saga should listen for the action type of `GET_ZOO_ANIMALS`
 function* rootSaga() {
@@ -21,20 +22,10 @@ function* rootSaga() {
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
-// Used to store class and number of unique animals in that class
-const zooAnimals = (state = [], action) => {
-    switch (action.type) {
-        case 'SET_ZOO_ANIMALS':
-            return action.payload;
-        default:
-            return state;
-    }
-}
-
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
-        zooAnimals,
+        setZooReducer,
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
